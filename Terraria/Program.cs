@@ -1,12 +1,20 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using Terraria.Terraria.Entities;
+using Terraria.Terraria.Parsers;
 namespace Terraria
 {
 	internal static class Program
 	{
 		private static void Main(string[] args)
 		{
+            if (1 == 1)
+            {
+                PlayerStates test = new PlayerStates(null);
+                //DedicatedConfig.test();
+                return;
+            }
 			using (Main main = new Main())
 			{
 				try

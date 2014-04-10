@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using Terraria.Terraria.Constants;
+using Terraria.Terraria.ID;
 namespace Terraria
 {
 	public static class IngameOptions
@@ -48,7 +50,7 @@ namespace Terraria
 			Main.playerInventory = false;
 			Main.editChest = false;
 			Main.npcChatText = "";
-			Main.PlaySound(10, -1, -1, 1);
+            Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 			Main.ingameOptionsWindow = true;
 			IngameOptions.category = 0;
 			for (int i = 0; i < IngameOptions.leftScale.Length; i++)
@@ -64,7 +66,7 @@ namespace Terraria
 			}
 			Main.SaveSettings();
 			Main.ingameOptionsWindow = false;
-			Main.PlaySound(11, -1, -1, 1);
+			Main.PlaySound(SoundTypeID.MENU_CLOSE, -1, -1, 1);
 			Recipe.FindRecipes();
 			Main.playerInventory = true;
 		}
@@ -96,15 +98,15 @@ namespace Terraria
 			float num4 = 0.01f;
 			if (IngameOptions.oldLeftHover != IngameOptions.leftHover && IngameOptions.leftHover != -1)
 			{
-				Main.PlaySound(12, -1, -1, 1);
+				Main.PlaySound(SoundTypeID.MENU_TICK, -1, -1, 1);
 			}
 			if (IngameOptions.oldRightHover != IngameOptions.rightHover && IngameOptions.rightHover != -1)
 			{
-				Main.PlaySound(12, -1, -1, 1);
+				Main.PlaySound(SoundTypeID.MENU_TICK, -1, -1, 1);
 			}
 			if (flag && IngameOptions.rightHover != -1 && !IngameOptions.noSound)
 			{
-				Main.PlaySound(12, -1, -1, 1);
+				Main.PlaySound(SoundTypeID.MENU_TICK, -1, -1, 1);
 			}
 			IngameOptions.oldLeftHover = IngameOptions.leftHover;
 			IngameOptions.oldRightHover = IngameOptions.rightHover;
@@ -139,7 +141,7 @@ namespace Terraria
 				if (flag)
 				{
 					IngameOptions.category = 0;
-					Main.PlaySound(10, -1, -1, 1);
+					Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 				}
 			}
 			if (IngameOptions.DrawLeftSide(sb, Lang.menu[63], 1, anchor, offset, IngameOptions.leftScale, 0.7f, 0.8f, 0.01f))
@@ -148,7 +150,7 @@ namespace Terraria
 				if (flag)
 				{
 					IngameOptions.category = 1;
-					Main.PlaySound(10, -1, -1, 1);
+					Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 				}
 			}
 			if (IngameOptions.DrawLeftSide(sb, Lang.menu[66], 2, anchor, offset, IngameOptions.leftScale, 0.7f, 0.8f, 0.01f))
@@ -157,7 +159,7 @@ namespace Terraria
 				if (flag)
 				{
 					IngameOptions.category = 2;
-					Main.PlaySound(10, -1, -1, 1);
+					Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 				}
 			}
 			if (IngameOptions.DrawLeftSide(sb, Lang.menu[115], 3, anchor, offset, IngameOptions.leftScale, 0.7f, 0.8f, 0.01f))
@@ -166,7 +168,7 @@ namespace Terraria
 				if (flag)
 				{
 					IngameOptions.category = 3;
-					Main.PlaySound(10, -1, -1, 1);
+					Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 				}
 			}
 			if (IngameOptions.DrawLeftSide(sb, Lang.menu[118], 4, anchor, offset, IngameOptions.leftScale, 0.7f, 0.8f, 0.01f))
@@ -551,7 +553,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cUp, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cUp, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -570,7 +572,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cDown, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cDown, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -589,7 +591,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cLeft, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cLeft, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -608,7 +610,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cRight, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cRight, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -627,7 +629,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cJump, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cJump, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -646,7 +648,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cThrowItem, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cThrowItem, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -665,7 +667,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cInv, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cInv, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -684,7 +686,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cHeal, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cHeal, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -703,7 +705,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cMana, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cMana, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -722,7 +724,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cBuff, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cBuff, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -741,7 +743,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cHook, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cHook, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -760,7 +762,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : Main.cTorch, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num13) ? "_" : KeyBoardDefinitions.cTorch, num12, num3, (Main.setKey == num13) ? Color.Gold : ((IngameOptions.rightHover == num12) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num12;
 					if (flag)
@@ -775,18 +777,7 @@ namespace Terraria
 					IngameOptions.rightHover = num12;
 					if (flag)
 					{
-						Main.cUp = "W";
-						Main.cDown = "S";
-						Main.cLeft = "A";
-						Main.cRight = "D";
-						Main.cJump = "Space";
-						Main.cThrowItem = "T";
-						Main.cInv = "Escape";
-						Main.cHeal = "H";
-						Main.cMana = "M";
-						Main.cBuff = "B";
-						Main.cHook = "E";
-						Main.cTorch = "LeftShift";
+                        KeyBoardDefinitions.resetBindingValues();
 						Main.setKey = -1;
 					}
 				}
@@ -800,54 +791,7 @@ namespace Terraria
 						string text = string.Concat(pressedKeys[0]);
 						if (text != "None")
 						{
-							if (Main.setKey == 0)
-							{
-								Main.cUp = text;
-							}
-							if (Main.setKey == 1)
-							{
-								Main.cDown = text;
-							}
-							if (Main.setKey == 2)
-							{
-								Main.cLeft = text;
-							}
-							if (Main.setKey == 3)
-							{
-								Main.cRight = text;
-							}
-							if (Main.setKey == 4)
-							{
-								Main.cJump = text;
-							}
-							if (Main.setKey == 5)
-							{
-								Main.cThrowItem = text;
-							}
-							if (Main.setKey == 6)
-							{
-								Main.cInv = text;
-							}
-							if (Main.setKey == 7)
-							{
-								Main.cHeal = text;
-							}
-							if (Main.setKey == 8)
-							{
-								Main.cMana = text;
-							}
-							if (Main.setKey == 9)
-							{
-								Main.cBuff = text;
-							}
-							if (Main.setKey == 10)
-							{
-								Main.cHook = text;
-							}
-							if (Main.setKey == 11)
-							{
-								Main.cTorch = text;
-							}
+                            KeyBoardDefinitions.setBindingValue(Main.setKey, text);
 							Main.blockKey = pressedKeys[0];
 							Main.blockInput = false;
 							Main.setKey = -1;
@@ -869,7 +813,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : Main.cMapStyle, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
+				if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : KeyBoardDefinitions.cMapStyle, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num14;
 					if (flag)
@@ -888,7 +832,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : Main.cMapFull, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : KeyBoardDefinitions.cMapFull, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num14;
 					if (flag)
@@ -907,7 +851,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : Main.cMapZoomIn, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : KeyBoardDefinitions.cMapZoomIn, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num14;
 					if (flag)
@@ -926,7 +870,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : Main.cMapZoomOut, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : KeyBoardDefinitions.cMapZoomOut, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num14;
 					if (flag)
@@ -945,7 +889,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : Main.cMapAlphaUp, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : KeyBoardDefinitions.cMapAlphaUp, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num14;
 					if (flag)
@@ -964,7 +908,7 @@ namespace Terraria
 					}
 				}
 				IngameOptions.valuePosition.X = IngameOptions.valuePosition.X + 10f;
-				if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : Main.cMapAlphaDown, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
+                if (IngameOptions.DrawValue(sb, (Main.setKey == num15) ? "_" : KeyBoardDefinitions.cMapAlphaDown, num14, num3, (Main.setKey == num15) ? Color.Gold : ((IngameOptions.rightHover == num14) ? Color.White : default(Color))))
 				{
 					IngameOptions.rightHover = num14;
 					if (flag)
@@ -979,12 +923,7 @@ namespace Terraria
 					IngameOptions.rightHover = num14;
 					if (flag)
 					{
-						Main.cMapStyle = "Tab";
-						Main.cMapFull = "M";
-						Main.cMapZoomIn = "Add";
-						Main.cMapZoomOut = "Subtract";
-						Main.cMapAlphaUp = "PageUp";
-						Main.cMapAlphaDown = "PageDown";
+                        KeyBoardDefinitions.resetMapBindingValues();
 						Main.setKey = -1;
 					}
 				}
@@ -998,30 +937,7 @@ namespace Terraria
 						string text2 = string.Concat(pressedKeys2[0]);
 						if (text2 != "None")
 						{
-							if (Main.setKey == 0)
-							{
-								Main.cMapStyle = text2;
-							}
-							if (Main.setKey == 1)
-							{
-								Main.cMapFull = text2;
-							}
-							if (Main.setKey == 2)
-							{
-								Main.cMapZoomIn = text2;
-							}
-							if (Main.setKey == 3)
-							{
-								Main.cMapZoomOut = text2;
-							}
-							if (Main.setKey == 4)
-							{
-								Main.cMapAlphaUp = text2;
-							}
-							if (Main.setKey == 5)
-							{
-								Main.cMapAlphaDown = text2;
-							}
+							KeyBoardDefinitions.setBindingMapValue(Main.setKey, text2);
 							Main.setKey = -1;
 							Main.blockKey = pressedKeys2[0];
 							Main.blockInput = false;

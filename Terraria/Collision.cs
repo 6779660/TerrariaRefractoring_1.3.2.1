@@ -71,8 +71,7 @@ namespace Terraria
                             }
                             if (!Main.tile[x - 1, y].inActive() && Main.tile[x - 1, y].active() && Main.tileSolid[Main.tile[x - 1, y].type] && !Main.tileSolidTop[Main.tile[x - 1, y].type] && Main.tile[x - 1, y].slope() == 0 && !Main.tile[x - 1, y].halfBrick() && !Main.tile[x + 1, y].inActive() && Main.tile[x + 1, y].active() && Main.tileSolid[Main.tile[x + 1, y].type] && !Main.tileSolidTop[Main.tile[x + 1, y].type] && Main.tile[x + 1, y].slope() == 0 && !Main.tile[x + 1, y].halfBrick())
                             {
-                                flag = false;
-                                return flag;
+                                return false;
                             }
                         }
                         else
@@ -88,8 +87,7 @@ namespace Terraria
                             }
                             if (!Main.tile[x, y - 1].inActive() && Main.tile[x, y - 1].active() && Main.tileSolid[Main.tile[x, y - 1].type] && !Main.tileSolidTop[Main.tile[x, y - 1].type] && Main.tile[x, y - 1].slope() == 0 && !Main.tile[x, y - 1].halfBrick() && !Main.tile[x, y + 1].inActive() && Main.tile[x, y + 1].active() && Main.tileSolid[Main.tile[x, y + 1].type] && !Main.tileSolidTop[Main.tile[x, y + 1].type] && Main.tile[x, y + 1].slope() == 0 && !Main.tile[x, y + 1].halfBrick())
                             {
-                                flag = false;
-                                return flag;
+                                return false;
                             }
                         }
                         if (Main.tile[x, y] != null)
@@ -100,8 +98,7 @@ namespace Terraria
                     }
                     else
                     {
-                        flag = true;
-                        return flag;
+                        return true;
                     }
                 }
                 while (Main.tile[x, y].inActive() || !Main.tile[x, y].active() || !Main.tileSolid[Main.tile[x, y].type] || Main.tileSolidTop[Main.tile[x, y].type]);
@@ -1562,7 +1559,7 @@ namespace Terraria
 								if (type == 32 || type == 69)
 								{
 									WorldGen.KillTile(i, j, false, false, false);
-									if (Main.netMode == 1 && !Main.tile[i, j].active() && Main.netMode == 1)
+									if (Main.netMode == 1 && !Main.tile[i, j].active())
 									{
 										NetMessage.SendData(17, -1, -1, "", 4, (float)i, (float)j, 0f, 0);
 									}

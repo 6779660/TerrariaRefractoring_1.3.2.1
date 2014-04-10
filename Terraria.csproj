@@ -80,6 +80,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Terraria.ID\ItemID.cs" />
     <Compile Include="Terraria.ID\MessageID.cs" />
+    <Compile Include="Terraria.ID\SoundTypeID.cs" />
     <Compile Include="Terraria.ID\StatusID.cs" />
     <Compile Include="Terraria.ID\TileID.cs" />
     <Compile Include="Terraria.ID\WallID.cs" />
@@ -92,28 +93,47 @@
     <Compile Include="Terraria\Collision.cs" />
     <Compile Include="Terraria\CombatText.cs" />
     <Compile Include="Terraria\Dust.cs" />
+    <Compile Include="Terraria\Entities\Buff.cs" />
+    <Compile Include="Terraria\Entities\EntityBase.cs" />
+    <Compile Include="Terraria\Entities\Player.cs" />
+    <Compile Include="Terraria\Entities\Spawn.cs" />
+    <Compile Include="Terraria\Entities\World.cs" />
     <Compile Include="Terraria\Gore.cs" />
     <Compile Include="Terraria\HitTile.cs" />
     <Compile Include="Terraria\IngameOptions.cs" />
     <Compile Include="Terraria\Item.cs" />
     <Compile Include="Terraria\ItemText.cs" />
+    <Compile Include="Terraria\Constants\KeyBoardDefinitions.cs" />
     <Compile Include="Terraria\keyBoardInput.cs" />
-    <Compile Include="Terraria\Lang.cs" />
+    <Compile Include="Terraria\Constants\Lang.cs" />
     <Compile Include="Terraria\Lighting.cs" />
     <Compile Include="Terraria\Liquid.cs" />
     <Compile Include="Terraria\LiquidBuffer.cs" />
-    <Compile Include="Terraria\Main.cs" />
+    <Compile Include="Terraria\Constants\MainConstDefinitions.cs" />
+    <Compile Include="Terraria\Main\Static\DisplayMainHelper.cs" />
+    <Compile Include="Terraria\Main\Main.cs" />
+    <Compile Include="Terraria\Main\MainDisplay.cs" />
+    <Compile Include="Terraria\Main\Static\SoundMainHelper.cs" />
+    <Compile Include="Terraria\Main\Static\MainStaticDefinitions.cs" />
+    <Compile Include="Terraria\Main\Static\MainHelper.cs" />
+    <Compile Include="Terraria\Main\Static\WorldManagingMainHelper.cs" />
     <Compile Include="Terraria\Map.cs" />
+    <Compile Include="Terraria\Menus\Menu.cs" />
+    <Compile Include="Terraria\Menus\NoneMenu.cs" />
+    <Compile Include="Terraria\Menus\SelectLangMenu.cs" />
+    <Compile Include="Terraria\Menus\SelectStaticLangMenu.cs" />
     <Compile Include="Terraria\MessageBuffer.cs" />
     <Compile Include="Terraria\NetMessage.cs" />
     <Compile Include="Terraria\Netplay.cs" />
     <Compile Include="Terraria\NPC.cs" />
+    <Compile Include="Terraria\Parsers\DedicatedCommands.cs" />
     <Compile Include="Terraria\Player.cs" />
     <Compile Include="Terraria\Program.cs" />
     <Compile Include="Terraria\Projectile.cs" />
     <Compile Include="Terraria\Rain.cs" />
     <Compile Include="Terraria\Recipe.cs" />
     <Compile Include="Terraria\ServerSock.cs" />
+    <Compile Include="Terraria\Parsers\DedicatedConfig.cs" />
     <Compile Include="Terraria\Sign.cs" />
     <Compile Include="Terraria\Star.cs" />
     <Compile Include="Terraria\Tile.cs" />
@@ -151,5 +171,6 @@
   <ItemGroup>
     <Content Include="Terraria.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

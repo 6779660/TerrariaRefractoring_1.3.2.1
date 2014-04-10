@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using Terraria.Terraria.ID;
 namespace Terraria
 {
 	internal class WorldGen
@@ -1348,7 +1349,7 @@ namespace Terraria
 		}
 		public static void worldGenCallBack(object threadContext)
 		{
-			Main.PlaySound(10, -1, -1, 1);
+			Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 			WorldGen.clearWorld();
 			WorldGen.generateWorld(-1);
 			WorldFile.saveWorld(true);
@@ -1357,7 +1358,7 @@ namespace Terraria
 			{
 				Main.menuMode = 6;
 			}
-			Main.PlaySound(10, -1, -1, 1);
+			Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 		}
 		public static void CreateNewWorld()
 		{
@@ -1367,8 +1368,8 @@ namespace Terraria
 		{
 			try
 			{
-				Main.PlaySound(34, -1, -1, 0);
-				Main.PlaySound(35, -1, -1, 0);
+				Main.PlaySound(SoundTypeID.LIQUID_I, -1, -1, 0);
+				Main.PlaySound(SoundTypeID.LIQUID_II, -1, -1, 0);
 			}
 			catch
 			{
@@ -1379,7 +1380,7 @@ namespace Terraria
 			if (Main.netMode == 0)
 			{
 				WorldFile.saveWorld(false);
-				Main.PlaySound(10, -1, -1, 1);
+				Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 			}
 			else
 			{
@@ -1390,7 +1391,7 @@ namespace Terraria
 		}
 		public static void SaveAndQuit()
 		{
-			Main.PlaySound(11, -1, -1, 1);
+			Main.PlaySound(SoundTypeID.MENU_CLOSE, -1, -1, 1);
 			ThreadPool.QueueUserWorkItem(new WaitCallback(WorldGen.SaveAndQuitCallBack), 1);
 		}
 		public static void playWorldCallBack(object threadContext)
@@ -1495,7 +1496,7 @@ namespace Terraria
 			Main.rainTime = WorldFile.tempRainTime;
 			Main.maxRaining = WorldFile.tempMaxRain;
 			Main.cloudAlpha = WorldFile.tempMaxRain;
-			Main.PlaySound(11, -1, -1, 1);
+			Main.PlaySound(SoundTypeID.MENU_CLOSE, -1, -1, 1);
 			Main.resetClouds = true;
 			WorldGen.noMapUpdate = false;
 		}
@@ -1567,7 +1568,7 @@ namespace Terraria
 					}
 				}
 			}
-			Main.PlaySound(10, -1, -1, 1);
+			Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 			Netplay.StartServer();
 			Main.dayTime = WorldFile.tempDayTime;
 			Main.time = WorldFile.tempTime;
@@ -11871,7 +11872,7 @@ namespace Terraria
 					WorldGen.TileFrame(num7, num8, false, false);
 				}
 			}
-			Main.PlaySound(9, i * 16, j * 16, 1);
+			Main.PlaySound(SoundTypeID.DOOR_CLOSE, i * 16, j * 16, 1);
 			return true;
 		}
 		public static bool AddLifeCrystal(int i, int j)
@@ -18372,7 +18373,7 @@ namespace Terraria
 					return;
 				}
 			}
-			Main.PlaySound(22, i * 16, num * 16 + 16, 1);
+			Main.PlaySound(SoundTypeID.UNLOCK, i * 16, num * 16 + 16, 1);
 			for (int k = num; k <= num + 2; k++)
 			{
 				if (Main.tile[i, k] == null)
@@ -18479,7 +18480,7 @@ namespace Terraria
 					}
 				}
 				int num6 = num * 54;
-				Main.PlaySound(8, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DOOR_OPEN, i * 16, j * 16, 1);
 				Main.tile[num4, num2].active(true);
 				Main.tile[num4, num2].type = 11;
 				Main.tile[num4, num2].frameY = (short)num6;
@@ -22535,7 +22536,7 @@ namespace Terraria
 				if (type == 29)
 				{
 					Item.NewItem(num2 * 16, y * 16, 32, 32, 87, 1, false, 0, false);
-					Main.PlaySound(13, i * 16, y * 16, 1);
+					Main.PlaySound(SoundTypeID.SHATTER, i * 16, y * 16, 1);
 				}
 				if (type == 103)
 				{
@@ -22553,7 +22554,7 @@ namespace Terraria
 						type3 = 2243;
 					}
 					Item.NewItem(num2 * 16, y * 16, 32, 32, type3, 1, false, 0, false);
-					Main.PlaySound(13, i * 16, y * 16, 1);
+					Main.PlaySound(SoundTypeID.SHATTER, i * 16, y * 16, 1);
 				}
 				else
 				{
@@ -26570,11 +26571,11 @@ namespace Terraria
 					}
 					if (frameX >= 36)
 					{
-						Main.PlaySound(4, i * 16, j * 16, 1);
+						Main.PlaySound(SoundTypeID.NPC_KILLED, i * 16, j * 16, 1);
 					}
 					else
 					{
-						Main.PlaySound(13, i * 16, j * 16, 1);
+						Main.PlaySound(SoundTypeID.SHATTER, i * 16, j * 16, 1);
 					}
 					WorldGen.destroyObject = false;
 				}
@@ -27954,17 +27955,17 @@ namespace Terraria
 				WorldGen.destroyObject = true;
 				if (num >= 7 && num <= 9)
 				{
-					Main.PlaySound(6, i * 16, j * 16, 1);
+					Main.PlaySound(SoundTypeID.GRASS, i * 16, j * 16, 1);
 				}
 				else
 				{
 					if (num >= 16 && num <= 24)
 					{
-						Main.PlaySound(4, i * 16, j * 16, 1);
+						Main.PlaySound(SoundTypeID.NPC_KILLED, i * 16, j * 16, 1);
 					}
 					else
 					{
-						Main.PlaySound(13, i * 16, j * 16, 1);
+						Main.PlaySound(SoundTypeID.SHATTER, i * 16, j * 16, 1);
 					}
 				}
 				for (int num4 = k; num4 < k + 2; num4++)
@@ -28605,7 +28606,7 @@ namespace Terraria
 		{
 			if (!Main.tile[i, j].actuator())
 			{
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				Main.tile[i, j].actuator(true);
 				return true;
 			}
@@ -28615,7 +28616,7 @@ namespace Terraria
 		{
 			if (Main.tile[i, j].actuator())
 			{
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				Main.tile[i, j].actuator(false);
 				if (Main.netMode != 1)
 				{
@@ -28633,7 +28634,7 @@ namespace Terraria
 		{
 			if (!Main.tile[i, j].wire())
 			{
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				Main.tile[i, j].wire(true);
 				return true;
 			}
@@ -28643,7 +28644,7 @@ namespace Terraria
 		{
 			if (Main.tile[i, j].wire())
 			{
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				Main.tile[i, j].wire(false);
 				if (Main.netMode != 1)
 				{
@@ -28661,7 +28662,7 @@ namespace Terraria
 		{
 			if (!Main.tile[i, j].wire2())
 			{
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				Main.tile[i, j].wire2(true);
 				return true;
 			}
@@ -28671,7 +28672,7 @@ namespace Terraria
 		{
 			if (Main.tile[i, j].wire2())
 			{
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				Main.tile[i, j].wire2(false);
 				if (Main.netMode != 1)
 				{
@@ -28689,7 +28690,7 @@ namespace Terraria
 		{
 			if (!Main.tile[i, j].wire3())
 			{
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				Main.tile[i, j].wire3(true);
 				return true;
 			}
@@ -28699,7 +28700,7 @@ namespace Terraria
 		{
 			if (Main.tile[i, j].wire3())
 			{
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				Main.tile[i, j].wire3(false);
 				if (Main.netMode != 1)
 				{
@@ -29433,11 +29434,11 @@ namespace Terraria
 						result = true;
 						if (type == 127)
 						{
-							Main.PlaySound(2, i * 16, j * 16, 30);
+							Main.PlaySound(SoundTypeID.ITEM,i * 16, j * 16, 30);
 						}
 						else
 						{
-							Main.PlaySound(0, i * 16, j * 16, 1);
+							Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 						}
 						if (type == 22 || type == 140)
 						{
@@ -29591,7 +29592,7 @@ namespace Terraria
 			}
 			if (Main.tile[i, j].type == 135)
 			{
-				Main.PlaySound(28, i * 16, j * 16, 0);
+				Main.PlaySound(SoundTypeID.MECH, i * 16, j * 16, 0);
 				WorldGen.TripWire(i, j);
 				return;
 			}
@@ -29605,7 +29606,7 @@ namespace Terraria
 				{
 					Main.tile[i, j].frameY = 0;
 				}
-				Main.PlaySound(28, i * 16, j * 16, 0);
+				Main.PlaySound(SoundTypeID.MECH, i * 16, j * 16, 0);
 				WorldGen.TripWire(i, j);
 				return;
 			}
@@ -29623,7 +29624,7 @@ namespace Terraria
 				{
 					Main.tile[i, j].frameY = 0;
 				}
-				Main.PlaySound(28, i * 16, j * 16, 0);
+				Main.PlaySound(SoundTypeID.MECH, i * 16, j * 16, 0);
 				return;
 			}
 			if (Main.tile[i, j].type == 132)
@@ -29651,7 +29652,7 @@ namespace Terraria
 					}
 				}
 				WorldGen.TileFrame(num2, num3, false, false);
-				Main.PlaySound(28, i * 16, j * 16, 0);
+				Main.PlaySound(SoundTypeID.MECH, i * 16, j * 16, 0);
 				for (int m = num2; m < num2 + 2; m++)
 				{
 					for (int n = num3; n < num3 + 2; n++)
@@ -30627,17 +30628,17 @@ namespace Terraria
 				{
 					if (Main.tile[i, j].wall == 21)
 					{
-						Main.PlaySound(13, i * 16, j * 16, 1);
+						Main.PlaySound(SoundTypeID.SHATTER, i * 16, j * 16, 1);
 					}
 					else
 					{
 						if (Main.tile[i, j].wall >= 63 && Main.tile[i, j].wall <= 70)
 						{
-							Main.PlaySound(6, i * 16, j * 16, 1);
+							Main.PlaySound(SoundTypeID.GRASS, i * 16, j * 16, 1);
 						}
 						else
 						{
-							Main.PlaySound(0, i * 16, j * 16, 1);
+							Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 						}
 					}
 					int num = 10;
@@ -31434,25 +31435,25 @@ namespace Terraria
 					{
 						if (Main.tile[i, j].type == 127)
 						{
-							Main.PlaySound(2, i * 16, j * 16, 27);
+							Main.PlaySound(SoundTypeID.ITEM,i * 16, j * 16, 27);
 						}
 						else
 						{
 							if (Main.tile[i, j].type == 147 || Main.tile[i, j].type == 224)
 							{
-								Main.PlaySound(2, i * 16, j * 16, WorldGen.genRand.Next(48, 50));
+								Main.PlaySound(SoundTypeID.ITEM,i * 16, j * 16, WorldGen.genRand.Next(48, 50));
 							}
 							else
 							{
 								if (Main.tile[i, j].type == 161 || Main.tile[i, j].type == 163 || Main.tile[i, j].type == 164 || Main.tile[i, j].type == 200)
 								{
-									Main.PlaySound(2, i * 16, j * 16, 50);
+									Main.PlaySound(SoundTypeID.ITEM,i * 16, j * 16, 50);
 								}
 								else
 								{
 									if (Main.tile[i, j].type == 3 || Main.tile[i, j].type == 110)
 									{
-										Main.PlaySound(6, i * 16, j * 16, 1);
+										Main.PlaySound(SoundTypeID.GRASS, i * 16, j * 16, 1);
 										if (Main.tile[i, j].frameX == 144)
 										{
 											Item.NewItem(i * 16, j * 16, 16, 16, 5, 1, false, 0, false);
@@ -31462,13 +31463,13 @@ namespace Terraria
 									{
 										if (Main.tile[i, j].type == 254)
 										{
-											Main.PlaySound(6, i * 16, j * 16, 1);
+											Main.PlaySound(SoundTypeID.GRASS, i * 16, j * 16, 1);
 										}
 										else
 										{
 											if (Main.tile[i, j].type == 24)
 											{
-												Main.PlaySound(6, i * 16, j * 16, 1);
+												Main.PlaySound(SoundTypeID.GRASS, i * 16, j * 16, 1);
 												if (Main.tile[i, j].frameX == 144)
 												{
 													Item.NewItem(i * 16, j * 16, 16, 16, 60, 1, false, 0, false);
@@ -31478,37 +31479,37 @@ namespace Terraria
 											{
 												if (Main.tileAlch[(int)Main.tile[i, j].type] || Main.tile[i, j].type == 32 || Main.tile[i, j].type == 51 || Main.tile[i, j].type == 52 || Main.tile[i, j].type == 61 || Main.tile[i, j].type == 62 || Main.tile[i, j].type == 69 || Main.tile[i, j].type == 71 || Main.tile[i, j].type == 73 || Main.tile[i, j].type == 74 || Main.tile[i, j].type == 113 || Main.tile[i, j].type == 115 || Main.tile[i, j].type == 184 || Main.tile[i, j].type == 192 || Main.tile[i, j].type == 205 || Main.tile[i, j].type == 233)
 												{
-													Main.PlaySound(6, i * 16, j * 16, 1);
+													Main.PlaySound(SoundTypeID.GRASS, i * 16, j * 16, 1);
 												}
 												else
 												{
 													if (Main.tile[i, j].type == 201)
 													{
-														Main.PlaySound(6, i * 16, j * 16, 1);
+														Main.PlaySound(SoundTypeID.GRASS, i * 16, j * 16, 1);
 													}
 													else
 													{
 														if (Main.tile[i, j].type == 1 || Main.tile[i, j].type == 6 || Main.tile[i, j].type == 7 || Main.tile[i, j].type == 8 || Main.tile[i, j].type == 9 || Main.tile[i, j].type == 22 || Main.tile[i, j].type == 140 || Main.tile[i, j].type == 25 || Main.tile[i, j].type == 37 || Main.tile[i, j].type == 38 || Main.tile[i, j].type == 39 || Main.tile[i, j].type == 41 || Main.tile[i, j].type == 43 || Main.tile[i, j].type == 44 || Main.tile[i, j].type == 45 || Main.tile[i, j].type == 46 || Main.tile[i, j].type == 47 || Main.tile[i, j].type == 48 || Main.tile[i, j].type == 56 || Main.tile[i, j].type == 58 || Main.tile[i, j].type == 63 || Main.tile[i, j].type == 64 || Main.tile[i, j].type == 65 || Main.tile[i, j].type == 66 || Main.tile[i, j].type == 67 || Main.tile[i, j].type == 68 || Main.tile[i, j].type == 75 || Main.tile[i, j].type == 76 || Main.tile[i, j].type == 107 || Main.tile[i, j].type == 108 || Main.tile[i, j].type == 111 || Main.tile[i, j].type == 117 || Main.tile[i, j].type == 118 || Main.tile[i, j].type == 119 || Main.tile[i, j].type == 120 || Main.tile[i, j].type == 121 || Main.tile[i, j].type == 122 || Main.tile[i, j].type == 150 || Main.tile[i, j].type == 151 || Main.tile[i, j].type == 152 || Main.tile[i, j].type == 153 || Main.tile[i, j].type == 154 || Main.tile[i, j].type == 155 || Main.tile[i, j].type == 156 || Main.tile[i, j].type == 160 || Main.tile[i, j].type == 161 || Main.tile[i, j].type == 166 || Main.tile[i, j].type == 167 || Main.tile[i, j].type == 168 || Main.tile[i, j].type == 169 || Main.tile[i, j].type == 175 || Main.tile[i, j].type == 176 || Main.tile[i, j].type == 177 || Main.tile[i, j].type == 203 || Main.tile[i, j].type == 202 || Main.tile[i, j].type == 204 || Main.tile[i, j].type == 206 || Main.tile[i, j].type == 211 || Main.tile[i, j].type == 221 || Main.tile[i, j].type == 222 || Main.tile[i, j].type == 223 || Main.tile[i, j].type == 226 || Main.tile[i, j].type == 248 || Main.tile[i, j].type == 249 || Main.tile[i, j].type == 250 || Main.tile[i, j].type == 272 || Main.tile[i, j].type == 273 || Main.tile[i, j].type == 274 || Main.tile[i, j].type == 284)
 														{
-															Main.PlaySound(21, i * 16, j * 16, 1);
+															Main.PlaySound(SoundTypeID.TINK, i * 16, j * 16, 1);
 														}
 														else
 														{
 															if (Main.tile[i, j].type == 231)
 															{
-																Main.PlaySound(4, i * 16, j * 16, 1);
+																Main.PlaySound(SoundTypeID.NPC_KILLED, i * 16, j * 16, 1);
 															}
 															else
 															{
 																if (Main.tile[i, j].type == 26 && Main.tile[i, j].frameX >= 54)
 																{
-																	Main.PlaySound(4, i * 16, j * 16, 1);
+																	Main.PlaySound(SoundTypeID.NPC_KILLED, i * 16, j * 16, 1);
 																}
 																else
 																{
 																	if (Main.tile[i, j].type != 138)
 																	{
-																		Main.PlaySound(0, i * 16, j * 16, 1);
+																		Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 																	}
 																}
 															}
@@ -31523,7 +31524,7 @@ namespace Terraria
 						}
 						if ((Main.tile[i, j].type == 162 || Main.tile[i, j].type == 129 || (Main.tile[i, j].type == 165 && Main.tile[i, j].frameX < 54)) && !fail)
 						{
-							Main.PlaySound(2, i * 16, j * 16, 27);
+							Main.PlaySound(SoundTypeID.ITEM,i * 16, j * 16, 27);
 						}
 					}
 					int num2 = 10;
@@ -34266,7 +34267,7 @@ namespace Terraria
 																																																																							{
 																																																																								if (Main.tile[i, j].type == 13)
 																																																																								{
-																																																																									Main.PlaySound(13, i * 16, j * 16, 1);
+																																																																									Main.PlaySound(SoundTypeID.SHATTER, i * 16, j * 16, 1);
 																																																																									int num42 = (int)(Main.tile[i, j].frameX / 18);
 																																																																									if (num42 == 1)
 																																																																									{
@@ -34643,7 +34644,7 @@ namespace Terraria
 																																																																																																			if (Main.tile[i, j].type == 54)
 																																																																																																			{
 																																																																																																				num30 = 170;
-																																																																																																				Main.PlaySound(13, i * 16, j * 16, 1);
+																																																																																																				Main.PlaySound(SoundTypeID.SHATTER, i * 16, j * 16, 1);
 																																																																																																			}
 																																																																																																			else
 																																																																																																			{
@@ -38339,7 +38340,7 @@ namespace Terraria
 				WorldGen.SquareWallFrame(i, j, true);
 				if (!mute)
 				{
-					Main.PlaySound(0, i * 16, j * 16, 1);
+					Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				}
 			}
 		}
@@ -42357,7 +42358,7 @@ namespace Terraria
 			if (!WorldGen.gen)
 			{
 				WorldGen.KillTile(i, j, true, true, false);
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				WorldGen.SquareTileFrame(i, j, true);
 				if (Main.tile[i, j].slope() == 0)
 				{
@@ -42391,7 +42392,7 @@ namespace Terraria
 			if (!WorldGen.gen)
 			{
 				WorldGen.KillTile(i, j, true, true, false);
-				Main.PlaySound(0, i * 16, j * 16, 1);
+				Main.PlaySound(SoundTypeID.DIG, i * 16, j * 16, 1);
 				WorldGen.SquareTileFrame(i, j, true);
 				if (!Main.tile[i, j].halfBrick())
 				{

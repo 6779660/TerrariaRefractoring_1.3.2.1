@@ -2351,12 +2351,12 @@ namespace Terraria
 							binaryWriter.Write(Main.worldID);
 							binaryWriter.Write(Main.maxTilesY);
 							binaryWriter.Write(Main.maxTilesX);
-							binaryWriter.Write((short)314);
-							binaryWriter.Write((short)145);
-							binaryWriter.Write((short)3);
-							binaryWriter.Write((short)256);
-							binaryWriter.Write((short)256);
-							binaryWriter.Write((short)256);
+							binaryWriter.Write(314);
+							binaryWriter.Write(145);
+							binaryWriter.Write(3);
+							binaryWriter.Write(256);
+							binaryWriter.Write(256);
+							binaryWriter.Write(256);
 							byte b = 1;
 							byte b2 = 0;
 							int i;

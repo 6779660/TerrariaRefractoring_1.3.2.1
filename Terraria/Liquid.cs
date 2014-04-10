@@ -1292,7 +1292,6 @@ namespace Terraria
 			Main.liquid[Liquid.numLiquid].x = x;
 			Main.liquid[Liquid.numLiquid].y = y;
 			Liquid.numLiquid++;
-			int arg_F0_0 = Main.netMode;
 			if (tile.active() && (Main.tileWaterDeath[(int)tile.type] || (tile.lava() && Main.tileLavaDeath[(int)tile.type])))
 			{
 				WorldGen.KillTile(x, y, false, false, false);

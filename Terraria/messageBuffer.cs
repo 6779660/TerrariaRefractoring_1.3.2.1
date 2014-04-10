@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Text;
+using Terraria.Terraria.ID;
 namespace Terraria
 {
 	public class MessageBuffer
@@ -27,6 +28,7 @@ namespace Terraria
 			this.broadcast = false;
 			this.checkBytes = false;
 		}
+
 		public void GetData(int start, int length)
 		{
 			if (this.whoAmI < 256)
@@ -66,6 +68,24 @@ namespace Terraria
 			{
 				NetMessage.BootPlayer(this.whoAmI, Lang.mp[2]);
 			}
+            switch (Main.netMode)
+            {
+                case 1:
+                    {
+
+                    }
+                    break;
+                case 2:
+                    {
+
+                    }
+                    break;
+                default:
+                    {
+
+                    }
+                    break;
+            }
 			if (b == 1 && Main.netMode == 2)
 			{
 				if (Main.dedServ && Netplay.CheckBan(Netplay.serverSock[this.whoAmI].tcpClient.Client.RemoteEndPoint.ToString()))
@@ -1972,20 +1992,20 @@ namespace Terraria
 																																	if (Main.player[Main.myPlayer].chest == -1)
 																																	{
 																																		Main.playerInventory = true;
-																																		Main.PlaySound(10, -1, -1, 1);
+																																		Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 																																	}
 																																	else
 																																	{
 																																		if (Main.player[Main.myPlayer].chest != num84 && num84 != -1)
 																																		{
 																																			Main.playerInventory = true;
-																																			Main.PlaySound(12, -1, -1, 1);
+																																			Main.PlaySound(SoundTypeID.MENU_TICK, -1, -1, 1);
 																																		}
 																																		else
 																																		{
 																																			if (Main.player[Main.myPlayer].chest != -1 && num84 == -1)
 																																			{
-																																				Main.PlaySound(11, -1, -1, 1);
+																																				Main.PlaySound(SoundTypeID.MENU_CLOSE, -1, -1, 1);
 																																			}
 																																		}
 																																	}
@@ -2443,7 +2463,7 @@ namespace Terraria
 																																														Main.playerInventory = false;
 																																														Main.player[Main.myPlayer].talkNPC = -1;
 																																														Main.editSign = false;
-																																														Main.PlaySound(10, -1, -1, 1);
+																																														Main.PlaySound(SoundTypeID.MENU_OPEN, -1, -1, 1);
 																																														Main.player[Main.myPlayer].sign = num104;
 																																														Main.npcChatText = Main.sign[num104].text;
 																																														return;
@@ -2553,7 +2573,7 @@ namespace Terraria
 																																																{
 																																																	if (Main.netMode != 2)
 																																																	{
-																																																		Main.PlaySound(2, (int)Main.player[(int)b33].position.X, (int)Main.player[(int)b33].position.Y, 1);
+																																																		Main.PlaySound(SoundTypeID.ITEM,(int)Main.player[(int)b33].position.X, (int)Main.player[(int)b33].position.Y, 1);
 																																																		return;
 																																																	}
 																																																	if (Main.netMode == 2)
@@ -2722,7 +2742,7 @@ namespace Terraria
 																																																							{
 																																																								style9 = 35;
 																																																							}
-																																																							Main.PlaySound(2, (int)Main.player[(int)b38].position.X, (int)Main.player[(int)b38].position.Y, style9);
+																																																							Main.PlaySound(SoundTypeID.ITEM,(int)Main.player[(int)b38].position.X, (int)Main.player[(int)b38].position.Y, style9);
 																																																							return;
 																																																						}
 																																																						else

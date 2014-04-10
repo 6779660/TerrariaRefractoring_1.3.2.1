@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System;
+using Terraria.Terraria.ID;
 namespace Terraria
 {
 	public class Item
@@ -34236,7 +34237,7 @@ namespace Terraria
 											Main.dust[num7].alpha = 100;
 											Main.dust[num7].noGravity = true;
 										}
-										Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+                                        Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 									}
 									else
 									{
@@ -34251,7 +34252,7 @@ namespace Terraria
 											Main.dust[num8].alpha = 100;
 											Main.dust[num8].noGravity = true;
 										}
-										Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+                                        Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 									}
 								}
 								else
@@ -34267,7 +34268,7 @@ namespace Terraria
 										Main.dust[num9].alpha = 100;
 										Main.dust[num9].noGravity = true;
 									}
-									Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+                                    Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 								}
 							}
 							this.wet = true;

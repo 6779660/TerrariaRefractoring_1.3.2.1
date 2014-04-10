@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System;
+using Terraria.Terraria.ID;
 namespace Terraria
 {
 	public class Projectile
@@ -7364,7 +7365,7 @@ namespace Terraria
 										Main.dust[num16].alpha = 100;
 										Main.dust[num16].noGravity = true;
 									}
-									Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+									Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 								}
 								else
 								{
@@ -7379,7 +7380,7 @@ namespace Terraria
 										Main.dust[num17].alpha = 100;
 										Main.dust[num17].noGravity = true;
 									}
-									Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+									Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 								}
 							}
 							else
@@ -7395,7 +7396,7 @@ namespace Terraria
 									Main.dust[num18].alpha = 100;
 									Main.dust[num18].noGravity = true;
 								}
-								Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+								Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 							}
 						}
 						this.wet = true;
@@ -7429,7 +7430,7 @@ namespace Terraria
 												Main.dust[num19].alpha = 100;
 												Main.dust[num19].noGravity = true;
 											}
-											Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+											Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 										}
 										else
 										{
@@ -7444,7 +7445,7 @@ namespace Terraria
 												Main.dust[num21].alpha = 100;
 												Main.dust[num21].noGravity = true;
 											}
-											Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+											Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 										}
 									}
 									else
@@ -7460,7 +7461,7 @@ namespace Terraria
 											Main.dust[num23].alpha = 100;
 											Main.dust[num23].noGravity = true;
 										}
-										Main.PlaySound(19, (int)this.position.X, (int)this.position.Y, 1);
+										Main.PlaySound(SoundTypeID.SPLASH, (int)this.position.X, (int)this.position.Y, 1);
 									}
 								}
 							}
@@ -7884,7 +7885,7 @@ namespace Terraria
 																					if (this.velocity.Y != vector.Y && vector.Y > 5f)
 																					{
 																						Collision.HitTiles(this.position, this.velocity, this.width, this.height);
-																						Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																						Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																						this.velocity.Y = -vector.Y * 0.2f;
 																					}
 																					if (this.velocity.X != vector.X)
@@ -7899,7 +7900,7 @@ namespace Terraria
 																						if (this.penetrate > 1)
 																						{
 																							Collision.HitTiles(this.position, this.velocity, this.width, this.height);
-																							Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																							Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																							this.penetrate--;
 																							if (this.velocity.X != vector.X)
 																							{
@@ -7969,7 +7970,7 @@ namespace Terraria
 																									{
 																										this.netUpdate = true;
 																										Collision.HitTiles(this.position, this.velocity, this.width, this.height);
-																										Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																										Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																									}
 																									if (this.wet)
 																									{
@@ -8002,7 +8003,7 @@ namespace Terraria
 																											}
 																										}
 																										this.netUpdate = true;
-																										Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																										Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																									}
 																									else
 																									{
@@ -8030,13 +8031,13 @@ namespace Terraria
 																												}
 																											}
 																											this.netUpdate = true;
-																											Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																											Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																										}
 																										else
 																										{
 																											if (this.aiStyle == 8 && this.type != 96)
 																											{
-																												Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																												Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																												this.ai[0] += 1f;
 																												if ((this.ai[0] >= 5f && this.type != 253) || (this.type == 253 && this.ai[0] >= 8f))
 																												{
@@ -8072,7 +8073,7 @@ namespace Terraria
 																													if (this.type == 261 && ((this.velocity.X != vector.X && (vector.X < -3f || vector.X > 3f)) || (this.velocity.Y != vector.Y && (vector.Y < -3f || vector.Y > 3f))))
 																													{
 																														Collision.HitTiles(this.position, this.velocity, this.width, this.height);
-																														Main.PlaySound(0, (int)this.center().X, (int)this.center().Y, 1);
+																														Main.PlaySound(SoundTypeID.DIG, (int)this.center().X, (int)this.center().Y, 1);
 																													}
 																													if (this.type >= 326 && this.type <= 328)
 																													{
@@ -8434,7 +8435,7 @@ namespace Terraria
 					if (this.ai[1] == 0f)
 					{
 						this.ai[1] = 1f;
-						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 					}
 				}
 				else
@@ -8457,7 +8458,7 @@ namespace Terraria
 						if (this.ai[1] == 0f)
 						{
 							this.ai[1] = 1f;
-							Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+							Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 						}
 					}
 				}
@@ -8489,7 +8490,7 @@ namespace Terraria
 					if (this.ai[1] == 0f)
 					{
 						this.ai[1] = 1f;
-						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 42);
+						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 42);
 					}
 				}
 				if (this.type == 325)
@@ -8520,82 +8521,82 @@ namespace Terraria
 					if (this.ai[1] == 0f)
 					{
 						this.ai[1] = 1f;
-						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 42);
+						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 42);
 					}
 				}
 				if (this.type == 83 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 33);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 33);
 				}
 				if (this.type == 259 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 33);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 33);
 				}
 				if (this.type == 110 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 11);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 11);
 				}
 				if (this.type == 302 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 11);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 11);
 				}
 				if (this.type == 84 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 12);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 12);
 				}
 				if (this.type == 257 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 12);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 12);
 				}
 				if (this.type == 100 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 33);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 33);
 				}
 				if (this.type == 98 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 				}
 				if (this.type == 184 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 				}
 				if (this.type == 195 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 				}
 				if (this.type == 275 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 				}
 				if (this.type == 276 && this.ai[1] == 0f)
 				{
 					this.ai[1] = 1f;
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 				}
 				if ((this.type == 81 || this.type == 82) && this.ai[1] == 0f)
 				{
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 5);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 5);
 					this.ai[1] = 1f;
 				}
 				if (this.type == 180 && this.ai[1] == 0f)
 				{
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 11);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 11);
 					this.ai[1] = 1f;
 				}
 				if (this.type == 248 && this.ai[1] == 0f)
 				{
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 					this.ai[1] = 1f;
 				}
 				if (this.type == 41)
@@ -8723,7 +8724,7 @@ namespace Terraria
 					if (this.localAI[1] == 0f)
 					{
 						this.localAI[1] = 1f;
-						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 8);
+						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 8);
 					}
 					if (this.ai[0] == 0f || this.ai[0] == 2f)
 					{
@@ -8753,7 +8754,7 @@ namespace Terraria
 				{
 					if (this.localAI[0] == 6f)
 					{
-						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 8);
+						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 8);
 						for (int i = 0; i < 40; i++)
 						{
 							int num16 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 181, 0f, 0f, 100, default(Color), 1f);
@@ -9039,7 +9040,7 @@ namespace Terraria
 											if (this.type == 345 && this.localAI[0] == 0f)
 											{
 												this.localAI[0] = 1f;
-												Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 1);
+												Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 1);
 											}
 											if (this.ai[0] >= 50f)
 											{
@@ -9295,7 +9296,7 @@ namespace Terraria
 						if (this.ai[1] == 0f)
 						{
 							this.ai[1] = 1f;
-							Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+							Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 						}
 						this.ai[0] += 1f;
 						if (this.ai[0] >= 18f)
@@ -9342,7 +9343,7 @@ namespace Terraria
 							if (this.ai[1] == 0f)
 							{
 								this.ai[1] = 1f;
-								Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+								Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 							}
 							this.ai[0] += 1f;
 							if (this.ai[0] >= 18f)
@@ -9389,7 +9390,7 @@ namespace Terraria
 								if (this.ai[1] == 0f)
 								{
 									this.ai[1] = 1f;
-									Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+									Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 								}
 								this.ai[0] += 1f;
 								if (this.ai[0] >= 16f)
@@ -9477,7 +9478,7 @@ namespace Terraria
 												{
 													if (this.ai[0] == 0f)
 													{
-														Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 1);
+														Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 1);
 													}
 													this.ai[0] += 1f;
 													if (this.ai[0] >= 60f)
@@ -9572,7 +9573,7 @@ namespace Terraria
 						if (this.soundDelay == 0)
 						{
 							this.soundDelay = 8;
-							Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 7);
+							Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 7);
 						}
 						if (this.type == 19)
 						{
@@ -10057,7 +10058,7 @@ namespace Terraria
 								if (this.soundDelay == 0)
 								{
 									this.soundDelay = 20 + Main.rand.Next(40);
-									Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 9);
+									Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 9);
 								}
 								if (this.localAI[0] == 0f)
 								{
@@ -10344,7 +10345,7 @@ namespace Terraria
 															}
 														}
 														WorldGen.KillTile(num111, num112, true, true, false);
-														Main.PlaySound(0, num111 * 16, num112 * 16, 1);
+														Main.PlaySound(SoundTypeID.DIG, num111 * 16, num112 * 16, 1);
 														this.velocity.X = 0f;
 														this.velocity.Y = 0f;
 														this.ai[0] = 2f;
@@ -10469,12 +10470,12 @@ namespace Terraria
 											if (this.type == 258 && this.localAI[0] == 0f)
 											{
 												this.localAI[0] = 1f;
-												Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 20);
+												Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 20);
 											}
 											if (this.type == 96 && this.localAI[0] == 0f)
 											{
 												this.localAI[0] = 1f;
-												Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 20);
+												Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 20);
 											}
 											if (this.type == 27)
 											{
@@ -10568,7 +10569,7 @@ namespace Terraria
 														if (this.soundDelay == 0 && Math.Abs(this.velocity.X) + Math.Abs(this.velocity.Y) > 2f)
 														{
 															this.soundDelay = 10;
-															Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 9);
+															Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 9);
 														}
 														for (int num139 = 0; num139 < 1; num139++)
 														{
@@ -10585,7 +10586,7 @@ namespace Terraria
 														if (this.soundDelay == 0 && Math.Abs(this.velocity.X) + Math.Abs(this.velocity.Y) > 2f)
 														{
 															this.soundDelay = 10;
-															Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 9);
+															Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 9);
 														}
 														int num141 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 15, 0f, 0f, 100, default(Color), 2f);
 														Main.dust[num141].velocity *= 0.3f;
@@ -11038,7 +11039,7 @@ namespace Terraria
 															if (this.type == 288 && this.localAI[0] == 0f)
 															{
 																this.localAI[0] = 1f;
-																Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 17);
+																Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 17);
 															}
 															if (this.type == 280 || this.type == 288)
 															{
@@ -11293,7 +11294,7 @@ namespace Terraria
 																		if (this.localAI[0] == 0f)
 																		{
 																			this.localAI[0] = 1f;
-																			Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 1);
+																			Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 1);
 																		}
 																		this.frame = (int)this.ai[1];
 																		if (this.owner == Main.myPlayer && this.timeLeft == 1)
@@ -11430,7 +11431,7 @@ namespace Terraria
 																		if (this.ai[1] == 0f)
 																		{
 																			this.ai[1] = 1f;
-																			Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 13);
+																			Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 13);
 																		}
 																		int num211 = Dust.NewDust(this.position, this.width, this.height, 6, 0f, 0f, 100, default(Color), 1f);
 																		Dust expr_8F1E_cp_0 = Main.dust[num211];
@@ -11760,7 +11761,7 @@ namespace Terraria
 																				if (this.localAI[0] == 0f)
 																				{
 																					this.localAI[0] = 1f;
-																					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																				}
 																				this.frameCounter++;
 																				if (this.frameCounter > 3)
@@ -12156,7 +12157,7 @@ namespace Terraria
 																					if (this.ai[1] == 0f && this.type == 44)
 																					{
 																						this.ai[1] = 1f;
-																						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 8);
+																						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 8);
 																					}
 																					if (this.type != 263 && this.type != 274)
 																					{
@@ -12494,7 +12495,7 @@ namespace Terraria
 																							}
 																							if (this.soundDelay <= 0)
 																							{
-																								Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 22);
+																								Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 22);
 																								this.soundDelay = 30;
 																							}
 																							if (Main.myPlayer == this.owner)
@@ -12577,7 +12578,7 @@ namespace Terraria
 																								{
 																									this.ai[1] = 0f;
 																									Main.harpNote = this.ai[0];
-																									Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 26);
+																									Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 26);
 																									return;
 																								}
 																							}
@@ -16463,7 +16464,7 @@ namespace Terraria
 																												if (this.ai[1] == 0f)
 																												{
 																													this.ai[1] = 1f;
-																													Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 8);
+																													Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 8);
 																												}
 																												if (this.type == 157)
 																												{
@@ -16533,7 +16534,7 @@ namespace Terraria
 																													if (this.ai[1] == 0f)
 																													{
 																														this.ai[1] = 1f;
-																														Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 28);
+																														Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 28);
 																														return;
 																													}
 																												}
@@ -16551,7 +16552,7 @@ namespace Terraria
 																														if (this.ai[1] == 0f)
 																														{
 																															this.ai[1] = 1f;
-																															Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 8);
+																															Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 8);
 																															return;
 																														}
 																													}
@@ -17125,7 +17126,7 @@ namespace Terraria
 																																				if (this.ai[0] >= 6f)
 																																				{
 																																					this.ai[0] = 0f;
-																																					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 34);
+																																					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 34);
 																																					if (Main.myPlayer == this.owner)
 																																					{
 																																						Projectile.NewProjectile(this.position.X, this.position.Y, this.velocity.X, this.velocity.Y, 188, this.damage, this.knockBack, this.owner, 0f, 0f);
@@ -17460,7 +17461,7 @@ namespace Terraria
 																																						{
 																																							if (this.localAI[1] == 0f)
 																																							{
-																																								Main.PlaySound(6, (int)this.position.X, (int)this.position.Y, 1);
+																																								Main.PlaySound(SoundTypeID.GRASS, (int)this.position.X, (int)this.position.Y, 1);
 																																								this.localAI[1] += 1f;
 																																								for (int num514 = 0; num514 < 5; num514++)
 																																								{
@@ -17512,7 +17513,7 @@ namespace Terraria
 																																								{
 																																									if (this.ai[0] == 0f)
 																																									{
-																																										Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 8);
+																																										Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 8);
 																																									}
 																																									this.ai[0] += 1f;
 																																									if (this.ai[0] > 20f)
@@ -17897,7 +17898,7 @@ namespace Terraria
 																																											{
 																																												if (this.localAI[0] == 0f)
 																																												{
-																																													Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 8);
+																																													Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 8);
 																																												}
 																																												this.localAI[0] += 1f;
 																																												if (this.localAI[0] > 3f)
@@ -17966,7 +17967,7 @@ namespace Terraria
 																																												if (this.ai[1] == 0f)
 																																												{
 																																													this.ai[1] = 1f;
-																																													Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																													Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																												}
 																																												if (this.ai[1] == 1f)
 																																												{
@@ -18045,7 +18046,7 @@ namespace Terraria
 																																													{
 																																														if (this.localAI[0] == 0f)
 																																														{
-																																															Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 20);
+																																															Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 20);
 																																															this.localAI[0] += 1f;
 																																														}
 																																														bool flag21 = false;
@@ -18092,7 +18093,7 @@ namespace Terraria
 																																													}
 																																													if (this.localAI[0] == 0f)
 																																													{
-																																														Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																														Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																														this.localAI[0] += 1f;
 																																													}
 																																													this.ai[0] += 1f;
@@ -18159,7 +18160,7 @@ namespace Terraria
 																																														{
 																																															if (this.localAI[0] == 0f)
 																																															{
-																																																Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 8);
+																																																Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 8);
 																																																this.localAI[0] += 1f;
 																																															}
 																																															for (int num575 = 0; num575 < 9; num575++)
@@ -18307,7 +18308,7 @@ namespace Terraria
 																																																	this.localAI[0] = 1f;
 																																																	this.ai[0] = 120f;
 																																																	int num606 = 80;
-																																																	Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 46);
+																																																	Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 46);
 																																																	for (int num607 = 0; num607 < num606; num607++)
 																																																	{
 																																																		int num608 = Dust.NewDust(new Vector2(this.position.X, this.position.Y + 16f), this.width, this.height - 16, 185, 0f, 0f, 0, default(Color), 1f);
@@ -19087,7 +19088,7 @@ namespace Terraria
 			this.timeLeft = 0;
 			if (this.type == 1 || this.type == 81 || this.type == 98)
 			{
-				Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+				Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 				for (int i = 0; i < 10; i++)
 				{
 					Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 7, 0f, 0f, 0, default(Color), 1f);
@@ -19151,7 +19152,7 @@ namespace Terraria
 			{
 				if (this.type == 343)
 				{
-					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 					for (int m = 4; m < 31; m++)
 					{
 						float num4 = this.lastVelocity.X * (30f / (float)m);
@@ -19165,7 +19166,7 @@ namespace Terraria
 				{
 					if (this.type == 349)
 					{
-						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 						for (int n = 0; n < 3; n++)
 						{
 							int num7 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 76, 0f, 0f, 0, default(Color), 1f);
@@ -19178,7 +19179,7 @@ namespace Terraria
 			}
 			if (this.type == 323)
 			{
-				Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+				Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 				for (int num8 = 0; num8 < 20; num8++)
 				{
 					int num9 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 7, 0f, 0f, 0, default(Color), 1f);
@@ -19200,7 +19201,7 @@ namespace Terraria
 			}
 			if (this.type == 346)
 			{
-				Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+				Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 				for (int num10 = 0; num10 < 10; num10++)
 				{
 					int num11 = 10;
@@ -19214,7 +19215,7 @@ namespace Terraria
 			}
 			if (this.type == 335)
 			{
-				Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+				Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 				for (int num13 = 0; num13 < 10; num13++)
 				{
 					int num14 = 90 - (int)this.ai[1];
@@ -19225,7 +19226,7 @@ namespace Terraria
 			}
 			if (this.type == 318)
 			{
-				Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+				Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 				for (int num16 = 0; num16 < 10; num16++)
 				{
 					int num17 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 30, 0f, 0f, 0, default(Color), 1f);
@@ -19263,7 +19264,7 @@ namespace Terraria
 					{
 						if (this.type == 184 || this.type == 195)
 						{
-							Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+							Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 							for (int num22 = 0; num22 < 5; num22++)
 							{
 								Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 7, 0f, 0f, 0, default(Color), 1f);
@@ -19273,7 +19274,7 @@ namespace Terraria
 						{
 							if (this.type == 275 || this.type == 276)
 							{
-								Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+								Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 								for (int num23 = 0; num23 < 5; num23++)
 								{
 									Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 7, 0f, 0f, 0, default(Color), 1f);
@@ -19301,7 +19302,7 @@ namespace Terraria
 									{
 										if (this.type == 270)
 										{
-											Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 27);
+											Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 27);
 											for (int num24 = 0; num24 < 20; num24++)
 											{
 												int num25 = Dust.NewDust(this.position, this.width, this.height, 26, 0f, 0f, 100, default(Color), 1f);
@@ -19318,7 +19319,7 @@ namespace Terraria
 										{
 											if (this.type == 265)
 											{
-												Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 27);
+												Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 27);
 												for (int num26 = 0; num26 < 15; num26++)
 												{
 													int num27 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 163, 0f, 0f, 100, default(Color), 1.2f);
@@ -19331,7 +19332,7 @@ namespace Terraria
 											{
 												if (this.type == 355)
 												{
-													Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 27);
+													Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 27);
 													for (int num28 = 0; num28 < 15; num28++)
 													{
 														int num29 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 205, 0f, 0f, 100, default(Color), 1.2f);
@@ -19356,7 +19357,7 @@ namespace Terraria
 													{
 														if (this.type == 263)
 														{
-															Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+															Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 															for (int num32 = 0; num32 < 15; num32++)
 															{
 																int num33 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 92, this.velocity.X, this.velocity.Y, Main.rand.Next(0, 101), default(Color), 1f + (float)Main.rand.Next(40) * 0.01f);
@@ -19368,7 +19369,7 @@ namespace Terraria
 														{
 															if (this.type == 261)
 															{
-																Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																for (int num34 = 0; num34 < 5; num34++)
 																{
 																	Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 148, 0f, 0f, 0, default(Color), 1f);
@@ -19428,7 +19429,7 @@ namespace Terraria
 																			{
 																				if (this.type == 206 || this.type == 225)
 																				{
-																					Main.PlaySound(6, (int)this.position.X, (int)this.position.Y, 1);
+																					Main.PlaySound(SoundTypeID.GRASS, (int)this.position.X, (int)this.position.Y, 1);
 																					for (int num40 = 0; num40 < 5; num40++)
 																					{
 																						Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 40, 0f, 0f, 0, default(Color), 1f);
@@ -19438,7 +19439,7 @@ namespace Terraria
 																				{
 																					if (this.type == 227)
 																					{
-																						Main.PlaySound(6, (int)this.position.X, (int)this.position.Y, 1);
+																						Main.PlaySound(SoundTypeID.GRASS, (int)this.position.X, (int)this.position.Y, 1);
 																						for (int num41 = 0; num41 < 15; num41++)
 																						{
 																							int num42 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 157, 0f, 0f, 0, default(Color), 1f);
@@ -19463,7 +19464,7 @@ namespace Terraria
 																							{
 																								if (this.type == 120)
 																								{
-																									Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																									Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																									for (int num43 = 0; num43 < 10; num43++)
 																									{
 																										int num44 = Dust.NewDust(new Vector2(this.position.X - this.velocity.X, this.position.Y - this.velocity.Y), this.width, this.height, 67, this.velocity.X, this.velocity.Y, 100, default(Color), 1f);
@@ -19573,7 +19574,7 @@ namespace Terraria
 																												{
 																													if (this.ai[1] == 0f)
 																													{
-																														Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																														Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																													}
 																													if (this.ai[1] < 10f)
 																													{
@@ -19628,7 +19629,7 @@ namespace Terraria
 																												{
 																													if (this.type == 117)
 																													{
-																														Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																														Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																														for (int num71 = 0; num71 < 10; num71++)
 																														{
 																															Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 26, 0f, 0f, 0, default(Color), 1f);
@@ -19638,7 +19639,7 @@ namespace Terraria
 																													{
 																														if (this.type == 166)
 																														{
-																															Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 51);
+																															Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 51);
 																															for (int num72 = 0; num72 < 10; num72++)
 																															{
 																																int num73 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 76, 0f, 0f, 0, default(Color), 1f);
@@ -19650,7 +19651,7 @@ namespace Terraria
 																														{
 																															if (this.type == 158)
 																															{
-																																Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																for (int num74 = 0; num74 < 10; num74++)
 																																{
 																																	int num75 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 9, 0f, 0f, 0, default(Color), 1f);
@@ -19662,7 +19663,7 @@ namespace Terraria
 																															{
 																																if (this.type == 159)
 																																{
-																																	Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																	Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																	for (int num76 = 0; num76 < 10; num76++)
 																																	{
 																																		int num77 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 11, 0f, 0f, 0, default(Color), 1f);
@@ -19674,7 +19675,7 @@ namespace Terraria
 																																{
 																																	if (this.type == 160)
 																																	{
-																																		Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																		Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																		for (int num78 = 0; num78 < 10; num78++)
 																																		{
 																																			int num79 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 19, 0f, 0f, 0, default(Color), 1f);
@@ -19686,7 +19687,7 @@ namespace Terraria
 																																	{
 																																		if (this.type == 161)
 																																		{
-																																			Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																			Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																			for (int num80 = 0; num80 < 10; num80++)
 																																			{
 																																				int num81 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 11, 0f, 0f, 0, default(Color), 1f);
@@ -19707,7 +19708,7 @@ namespace Terraria
 																																				{
 																																					if (this.type == 93)
 																																					{
-																																						Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																						Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																						for (int num83 = 0; num83 < 10; num83++)
 																																						{
 																																							int num84 = Dust.NewDust(this.position, this.width, this.height, 57, 0f, 0f, 100, default(Color), 0.5f);
@@ -19721,7 +19722,7 @@ namespace Terraria
 																																					{
 																																						if (this.type == 99)
 																																						{
-																																							Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																							Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																							for (int num85 = 0; num85 < 30; num85++)
 																																							{
 																																								int num86 = Dust.NewDust(this.position, this.width, this.height, 1, 0f, 0f, 0, default(Color), 1f);
@@ -19736,7 +19737,7 @@ namespace Terraria
 																																						{
 																																							if (this.type == 91 || this.type == 92)
 																																							{
-																																								Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																								Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																								for (int num87 = 0; num87 < 10; num87++)
 																																								{
 																																									Dust.NewDust(this.position, this.width, this.height, 58, this.velocity.X * 0.1f, this.velocity.Y * 0.1f, 150, default(Color), 1.2f);
@@ -19789,7 +19790,7 @@ namespace Terraria
 																																							{
 																																								if (this.type == 89)
 																																								{
-																																									Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																									Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																									for (int num97 = 0; num97 < 5; num97++)
 																																									{
 																																										int num98 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 68, 0f, 0f, 0, default(Color), 1f);
@@ -19835,7 +19836,7 @@ namespace Terraria
 																																											{
 																																												num104 = 20;
 																																											}
-																																											Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+																																											Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 																																											for (int num105 = 0; num105 < num104; num105++)
 																																											{
 																																												int num106 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 92, 0f, 0f, 0, default(Color), 1f);
@@ -19856,7 +19857,7 @@ namespace Terraria
 																																											if (this.type == 309)
 																																											{
 																																												int num107 = 10;
-																																												Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+																																												Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 																																												for (int num108 = 0; num108 < num107; num108++)
 																																												{
 																																													int num109 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 185, 0f, 0f, 0, default(Color), 1f);
@@ -19873,7 +19874,7 @@ namespace Terraria
 																																												if (this.type == 308)
 																																												{
 																																													int num110 = 80;
-																																													Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+																																													Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 																																													for (int num111 = 0; num111 < num110; num111++)
 																																													{
 																																														int num112 = Dust.NewDust(new Vector2(this.position.X, this.position.Y + 16f), this.width, this.height - 16, 185, 0f, 0f, 0, default(Color), 1f);
@@ -19886,7 +19887,7 @@ namespace Terraria
 																																												{
 																																													if (this.aiStyle == 29)
 																																													{
-																																														Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																														Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																														int num113 = this.type - 121 + 86;
 																																														for (int num114 = 0; num114 < 15; num114++)
 																																														{
@@ -19900,7 +19901,7 @@ namespace Terraria
 																																													{
 																																														if (this.type == 337)
 																																														{
-																																															Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+																																															Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 																																															for (int num116 = 0; num116 < 10; num116++)
 																																															{
 																																																int num117 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 197, 0f, 0f, 0, default(Color), 1f);
@@ -19913,7 +19914,7 @@ namespace Terraria
 																																															{
 																																																if (this.ai[0] >= 0f)
 																																																{
-																																																	Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 27);
+																																																	Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 27);
 																																																	for (int num118 = 0; num118 < 10; num118++)
 																																																	{
 																																																		Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 67, 0f, 0f, 0, default(Color), 1f);
@@ -19954,7 +19955,7 @@ namespace Terraria
 																																																	{
 																																																		if (this.type == 51 || this.type == 267)
 																																																		{
-																																																			Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																			Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																			for (int num125 = 0; num125 < 5; num125++)
 																																																			{
 																																																				Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 0, 0f, 0f, 0, default(Color), 0.7f);
@@ -19964,7 +19965,7 @@ namespace Terraria
 																																																		{
 																																																			if (this.type == 2 || this.type == 82)
 																																																			{
-																																																				Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																				Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																				for (int num126 = 0; num126 < 20; num126++)
 																																																				{
 																																																					Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 6, 0f, 0f, 100, default(Color), 1f);
@@ -19974,7 +19975,7 @@ namespace Terraria
 																																																			{
 																																																				if (this.type == 172)
 																																																				{
-																																																					Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																					Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																					for (int num127 = 0; num127 < 20; num127++)
 																																																					{
 																																																						Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 135, 0f, 0f, 100, default(Color), 1f);
@@ -19984,7 +19985,7 @@ namespace Terraria
 																																																				{
 																																																					if (this.type == 103)
 																																																					{
-																																																						Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																						Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																						for (int num128 = 0; num128 < 20; num128++)
 																																																						{
 																																																							int num129 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 75, 0f, 0f, 100, default(Color), 1f);
@@ -20000,7 +20001,7 @@ namespace Terraria
 																																																					{
 																																																						if (this.type == 278)
 																																																						{
-																																																							Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																							Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																							for (int num130 = 0; num130 < 20; num130++)
 																																																							{
 																																																								int num131 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 169, 0f, 0f, 100, default(Color), 1f);
@@ -20016,7 +20017,7 @@ namespace Terraria
 																																																						{
 																																																							if (this.type == 3 || this.type == 48 || this.type == 54)
 																																																							{
-																																																								Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																								Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																								for (int num132 = 0; num132 < 10; num132++)
 																																																								{
 																																																									Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 1, this.velocity.X * 0.1f, this.velocity.Y * 0.1f, 0, default(Color), 0.75f);
@@ -20026,7 +20027,7 @@ namespace Terraria
 																																																							{
 																																																								if (this.type == 330)
 																																																								{
-																																																									Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																									Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																									for (int num133 = 0; num133 < 10; num133++)
 																																																									{
 																																																										Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 0, this.velocity.X * 0.4f, this.velocity.Y * 0.4f, 0, default(Color), 0.75f);
@@ -20036,7 +20037,7 @@ namespace Terraria
 																																																								{
 																																																									if (this.type == 4)
 																																																									{
-																																																										Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																										Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																										for (int num134 = 0; num134 < 10; num134++)
 																																																										{
 																																																											Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 14, 0f, 0f, 150, default(Color), 1.1f);
@@ -20046,7 +20047,7 @@ namespace Terraria
 																																																									{
 																																																										if (this.type == 5)
 																																																										{
-																																																											Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																											Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																											for (int num135 = 0; num135 < 60; num135++)
 																																																											{
 																																																												int num136 = Main.rand.Next(3);
@@ -20072,7 +20073,7 @@ namespace Terraria
 																																																										{
 																																																											if (this.type == 9 || this.type == 12)
 																																																											{
-																																																												Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																												Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																												for (int num137 = 0; num137 < 10; num137++)
 																																																												{
 																																																													Dust.NewDust(this.position, this.width, this.height, 58, this.velocity.X * 0.1f, this.velocity.Y * 0.1f, 150, default(Color), 1.2f);
@@ -20097,12 +20098,12 @@ namespace Terraria
 																																																											{
 																																																												if (this.type == 281)
 																																																												{
-																																																													Main.PlaySound(4, (int)this.position.X, (int)this.position.Y, 1);
+																																																													Main.PlaySound(SoundTypeID.NPC_KILLED, (int)this.position.X, (int)this.position.Y, 1);
 																																																													int num141 = Gore.NewGore(this.position, new Vector2((float)Main.rand.Next(-20, 21) * 0.2f, (float)Main.rand.Next(-20, 21) * 0.2f), 76, 1f);
 																																																													Main.gore[num141].velocity -= this.velocity * 0.5f;
 																																																													num141 = Gore.NewGore(new Vector2(this.position.X, this.position.Y), new Vector2((float)Main.rand.Next(-20, 21) * 0.2f, (float)Main.rand.Next(-20, 21) * 0.2f), 77, 1f);
 																																																													Main.gore[num141].velocity -= this.velocity * 0.5f;
-																																																													Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																													Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																													for (int num142 = 0; num142 < 20; num142++)
 																																																													{
 																																																														int num143 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 31, 0f, 0f, 100, default(Color), 1.5f);
@@ -20152,7 +20153,7 @@ namespace Terraria
 																																																												{
 																																																													if (this.type == 162)
 																																																													{
-																																																														Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																														Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																														for (int num146 = 0; num146 < 20; num146++)
 																																																														{
 																																																															int num147 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 31, 0f, 0f, 100, default(Color), 1.5f);
@@ -20202,7 +20203,7 @@ namespace Terraria
 																																																													{
 																																																														if (this.type == 240)
 																																																														{
-																																																															Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																															Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																															for (int num151 = 0; num151 < 20; num151++)
 																																																															{
 																																																																int num152 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 31, 0f, 0f, 100, default(Color), 1.5f);
@@ -20252,7 +20253,7 @@ namespace Terraria
 																																																														{
 																																																															if (this.type == 283 || this.type == 282)
 																																																															{
-																																																																Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																for (int num156 = 0; num156 < 10; num156++)
 																																																																{
 																																																																	int num157 = Dust.NewDust(this.position, this.width, this.height, 171, 0f, 0f, 100, default(Color), 1f);
@@ -20307,7 +20308,7 @@ namespace Terraria
 																																																																{
 																																																																	if (this.type == 286)
 																																																																	{
-																																																																		Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																		Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																		for (int num164 = 0; num164 < 7; num164++)
 																																																																		{
 																																																																			Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 31, 0f, 0f, 100, default(Color), 1.5f);
@@ -20343,13 +20344,13 @@ namespace Terraria
 																																																																		if (this.type == 14 || this.type == 20 || this.type == 36 || this.type == 83 || this.type == 84 || this.type == 104 || this.type == 279 || this.type == 100 || this.type == 110 || this.type == 180 || this.type == 207 || this.type == 357 || this.type == 242 || this.type == 302 || this.type == 257 || this.type == 259 || this.type == 285 || this.type == 287)
 																																																																		{
 																																																																			Collision.HitTiles(this.position, this.velocity, this.width, this.height);
-																																																																			Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																			Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																		}
 																																																																		else
 																																																																		{
 																																																																			if (this.type == 15 || this.type == 34 || this.type == 321)
 																																																																			{
-																																																																				Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																				Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																				for (int num168 = 0; num168 < 20; num168++)
 																																																																				{
 																																																																					int num169 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 6, -this.velocity.X * 0.2f, -this.velocity.Y * 0.2f, 100, default(Color), 2f);
@@ -20363,7 +20364,7 @@ namespace Terraria
 																																																																			{
 																																																																				if (this.type == 253)
 																																																																				{
-																																																																					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																					for (int num170 = 0; num170 < 20; num170++)
 																																																																					{
 																																																																						int num171 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 135, -this.velocity.X * 0.2f, -this.velocity.Y * 0.2f, 100, default(Color), 2f);
@@ -20377,7 +20378,7 @@ namespace Terraria
 																																																																				{
 																																																																					if (this.type == 95 || this.type == 96)
 																																																																					{
-																																																																						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																						for (int num172 = 0; num172 < 20; num172++)
 																																																																						{
 																																																																							int num173 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 75, -this.velocity.X * 0.2f, -this.velocity.Y * 0.2f, 100, default(Color), 2f * this.scale);
@@ -20391,7 +20392,7 @@ namespace Terraria
 																																																																					{
 																																																																						if (this.type == 79)
 																																																																						{
-																																																																							Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																							Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																							for (int num174 = 0; num174 < 20; num174++)
 																																																																							{
 																																																																								int num175 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 66, 0f, 0f, 100, new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB), 2f);
@@ -20403,7 +20404,7 @@ namespace Terraria
 																																																																						{
 																																																																							if (this.type == 16)
 																																																																							{
-																																																																								Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																								Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																								for (int num176 = 0; num176 < 20; num176++)
 																																																																								{
 																																																																									int num177 = Dust.NewDust(new Vector2(this.position.X - this.velocity.X, this.position.Y - this.velocity.Y), this.width, this.height, 15, 0f, 0f, 100, default(Color), 2f);
@@ -20416,7 +20417,7 @@ namespace Terraria
 																																																																							{
 																																																																								if (this.type == 17)
 																																																																								{
-																																																																									Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																																									Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																																									for (int num178 = 0; num178 < 5; num178++)
 																																																																									{
 																																																																										Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 0, 0f, 0f, 0, default(Color), 1f);
@@ -20426,7 +20427,7 @@ namespace Terraria
 																																																																								{
 																																																																									if (this.type == 31 || this.type == 42)
 																																																																									{
-																																																																										Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																																										Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																																										for (int num179 = 0; num179 < 5; num179++)
 																																																																										{
 																																																																											int num180 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 32, 0f, 0f, 0, default(Color), 1f);
@@ -20437,7 +20438,7 @@ namespace Terraria
 																																																																									{
 																																																																										if (this.type == 109)
 																																																																										{
-																																																																											Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																																											Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																																											for (int num181 = 0; num181 < 5; num181++)
 																																																																											{
 																																																																												int num182 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 51, 0f, 0f, 0, default(Color), 0.6f);
@@ -20448,7 +20449,7 @@ namespace Terraria
 																																																																										{
 																																																																											if (this.type == 39)
 																																																																											{
-																																																																												Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																																												Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																																												for (int num183 = 0; num183 < 5; num183++)
 																																																																												{
 																																																																													int num184 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 38, 0f, 0f, 0, default(Color), 1f);
@@ -20459,7 +20460,7 @@ namespace Terraria
 																																																																											{
 																																																																												if (this.type == 71)
 																																																																												{
-																																																																													Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																																													Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																																													for (int num185 = 0; num185 < 5; num185++)
 																																																																													{
 																																																																														int num186 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 53, 0f, 0f, 0, default(Color), 1f);
@@ -20470,7 +20471,7 @@ namespace Terraria
 																																																																												{
 																																																																													if (this.type == 40)
 																																																																													{
-																																																																														Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																																														Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																																														for (int num187 = 0; num187 < 5; num187++)
 																																																																														{
 																																																																															int num188 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 36, 0f, 0f, 0, default(Color), 1f);
@@ -20481,7 +20482,7 @@ namespace Terraria
 																																																																													{
 																																																																														if (this.type == 21)
 																																																																														{
-																																																																															Main.PlaySound(0, (int)this.position.X, (int)this.position.Y, 1);
+																																																																															Main.PlaySound(SoundTypeID.DIG, (int)this.position.X, (int)this.position.Y, 1);
 																																																																															for (int num189 = 0; num189 < 10; num189++)
 																																																																															{
 																																																																																Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 26, 0f, 0f, 0, default(Color), 0.8f);
@@ -20500,7 +20501,7 @@ namespace Terraria
 																																																																															{
 																																																																																if (this.type == 27)
 																																																																																{
-																																																																																	Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																																	Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																																	for (int num191 = 0; num191 < 30; num191++)
 																																																																																	{
 																																																																																		int num192 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 172, this.velocity.X * 0.1f, this.velocity.Y * 0.1f, 100, default(Color), 1f);
@@ -20521,7 +20522,7 @@ namespace Terraria
 																																																																																	{
 																																																																																		if (this.type == 44 || this.type == 45)
 																																																																																		{
-																																																																																			Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																																			Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																																			for (int num194 = 0; num194 < 30; num194++)
 																																																																																			{
 																																																																																				int num195 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 27, this.velocity.X, this.velocity.Y, 100, default(Color), 1.7f);
@@ -20533,7 +20534,7 @@ namespace Terraria
 																																																																																		{
 																																																																																			if (this.type == 41)
 																																																																																			{
-																																																																																				Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																				Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																				for (int num196 = 0; num196 < 10; num196++)
 																																																																																				{
 																																																																																					Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 31, 0f, 0f, 100, default(Color), 1.5f);
@@ -20574,7 +20575,7 @@ namespace Terraria
 																																																																																			{
 																																																																																				if (this.type == 306)
 																																																																																				{
-																																																																																					Main.PlaySound(3, (int)this.position.X, (int)this.position.Y, 1);
+																																																																																					Main.PlaySound(SoundTypeID.NPC_HIT,(int)this.position.X, (int)this.position.Y, 1);
 																																																																																					for (int num200 = 0; num200 < 20; num200++)
 																																																																																					{
 																																																																																						int num201 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 184, 0f, 0f, 0, default(Color), 1f);
@@ -20617,7 +20618,7 @@ namespace Terraria
 																																																																																				{
 																																																																																					if (this.type == 183)
 																																																																																					{
-																																																																																						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																						for (int num208 = 0; num208 < 20; num208++)
 																																																																																						{
 																																																																																							int num209 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 31, 0f, 0f, 100, default(Color), 1.5f);
@@ -20666,7 +20667,7 @@ namespace Terraria
 																																																																																							{
 																																																																																								this.timeLeft = 60;
 																																																																																							}
-																																																																																							Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																							Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																							if (this.type == 167)
 																																																																																							{
 																																																																																								for (int num213 = 0; num213 < 400; num213++)
@@ -20909,7 +20910,7 @@ namespace Terraria
 																																																																																						{
 																																																																																							if (this.type == 312)
 																																																																																							{
-																																																																																								Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																								Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																								this.position.X = this.position.X + (float)(this.width / 2);
 																																																																																								this.position.Y = this.position.Y + (float)(this.height / 2);
 																																																																																								this.width = 22;
@@ -20973,7 +20974,7 @@ namespace Terraria
 																																																																																							{
 																																																																																								if (this.type == 133 || this.type == 134 || this.type == 135 || this.type == 136 || this.type == 137 || this.type == 138 || this.type == 303 || this.type == 338 || this.type == 339)
 																																																																																								{
-																																																																																									Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																									Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																									this.position.X = this.position.X + (float)(this.width / 2);
 																																																																																									this.position.Y = this.position.Y + (float)(this.height / 2);
 																																																																																									this.width = 22;
@@ -21030,7 +21031,7 @@ namespace Terraria
 																																																																																								{
 																																																																																									if (this.type == 139 || this.type == 140 || this.type == 141 || this.type == 142 || this.type == 143 || this.type == 144 || this.type == 340 || this.type == 341)
 																																																																																									{
-																																																																																										Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																										Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																										this.position.X = this.position.X + (float)(this.width / 2);
 																																																																																										this.position.Y = this.position.Y + (float)(this.height / 2);
 																																																																																										this.width = 80;
@@ -21102,7 +21103,7 @@ namespace Terraria
 																																																																																									{
 																																																																																										if (this.type == 246)
 																																																																																										{
-																																																																																											Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																											Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																											for (int num259 = 0; num259 < 10; num259++)
 																																																																																											{
 																																																																																												int num260 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 31, 0f, 0f, 100, default(Color), 1.5f);
@@ -21151,7 +21152,7 @@ namespace Terraria
 																																																																																										{
 																																																																																											if (this.type == 249)
 																																																																																											{
-																																																																																												Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																												Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																												for (int num269 = 0; num269 < 7; num269++)
 																																																																																												{
 																																																																																													int num270 = Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 31, 0f, 0f, 100, default(Color), 1.5f);
@@ -21184,7 +21185,7 @@ namespace Terraria
 																																																																																											{
 																																																																																												if (this.type == 28 || this.type == 30 || this.type == 37 || this.type == 75 || this.type == 102 || this.type == 164)
 																																																																																												{
-																																																																																													Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																													Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																													this.position.X = this.position.X + (float)(this.width / 2);
 																																																																																													this.position.Y = this.position.Y + (float)(this.height / 2);
 																																																																																													this.width = 22;
@@ -21233,7 +21234,7 @@ namespace Terraria
 																																																																																												{
 																																																																																													if (this.type == 29 || this.type == 108)
 																																																																																													{
-																																																																																														Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 14);
+																																																																																														Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 14);
 																																																																																														if (this.type == 29)
 																																																																																														{
 																																																																																															this.position.X = this.position.X + (float)(this.width / 2);
@@ -21294,7 +21295,7 @@ namespace Terraria
 																																																																																													{
 																																																																																														if (this.type == 69)
 																																																																																														{
-																																																																																															Main.PlaySound(13, (int)this.position.X, (int)this.position.Y, 1);
+																																																																																															Main.PlaySound(SoundTypeID.SHATTER, (int)this.position.X, (int)this.position.Y, 1);
 																																																																																															for (int num285 = 0; num285 < 5; num285++)
 																																																																																															{
 																																																																																																Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 13, 0f, 0f, 0, default(Color), 1f);
@@ -21312,7 +21313,7 @@ namespace Terraria
 																																																																																														{
 																																																																																															if (this.type == 70)
 																																																																																															{
-																																																																																																Main.PlaySound(13, (int)this.position.X, (int)this.position.Y, 1);
+																																																																																																Main.PlaySound(SoundTypeID.SHATTER, (int)this.position.X, (int)this.position.Y, 1);
 																																																																																																for (int num288 = 0; num288 < 5; num288++)
 																																																																																																{
 																																																																																																	Dust.NewDust(new Vector2(this.position.X, this.position.Y), this.width, this.height, 13, 0f, 0f, 0, default(Color), 1f);
@@ -21330,7 +21331,7 @@ namespace Terraria
 																																																																																															{
 																																																																																																if (this.type == 114 || this.type == 115)
 																																																																																																{
-																																																																																																	Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																																																	Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																																																	for (int num291 = 4; num291 < 31; num291++)
 																																																																																																	{
 																																																																																																		float num292 = this.lastVelocity.X * (30f / (float)num291);
@@ -21346,7 +21347,7 @@ namespace Terraria
 																																																																																																{
 																																																																																																	if (this.type == 116)
 																																																																																																	{
-																																																																																																		Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																																																		Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																																																		for (int num295 = 4; num295 < 31; num295++)
 																																																																																																		{
 																																																																																																			float num296 = this.lastVelocity.X * (30f / (float)num295);
@@ -21361,7 +21362,7 @@ namespace Terraria
 																																																																																																	{
 																																																																																																		if (this.type == 173)
 																																																																																																		{
-																																																																																																			Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																																																			Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																																																			for (int num299 = 4; num299 < 24; num299++)
 																																																																																																			{
 																																																																																																				float num300 = this.lastVelocity.X * (30f / (float)num299);
@@ -21391,7 +21392,7 @@ namespace Terraria
 																																																																																																		{
 																																																																																																			if (this.type == 132)
 																																																																																																			{
-																																																																																																				Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																																																				Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																																																				for (int num304 = 4; num304 < 31; num304++)
 																																																																																																				{
 																																																																																																					float num305 = this.lastVelocity.X * (30f / (float)num304);
@@ -21407,7 +21408,7 @@ namespace Terraria
 																																																																																																			{
 																																																																																																				if (this.type == 156)
 																																																																																																				{
-																																																																																																					Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																																																					Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																																																					for (int num308 = 4; num308 < 31; num308++)
 																																																																																																					{
 																																																																																																						float num309 = this.lastVelocity.X * (30f / (float)num308);
@@ -21424,7 +21425,7 @@ namespace Terraria
 																																																																																																				{
 																																																																																																					if (this.type == 157)
 																																																																																																					{
-																																																																																																						Main.PlaySound(2, (int)this.position.X, (int)this.position.Y, 10);
+																																																																																																						Main.PlaySound(SoundTypeID.ITEM,(int)this.position.X, (int)this.position.Y, 10);
 																																																																																																						for (int num312 = 4; num312 < 31; num312++)
 																																																																																																						{
 																																																																																																							int num313 = Dust.NewDust(this.position, this.width, this.height, 107, this.lastVelocity.X, this.lastVelocity.Y, 100, default(Color), 1.8f);

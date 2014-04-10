@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System;
+using Terraria.Terraria.ID;
 namespace Terraria
 {
 	public class Chest
@@ -69,7 +70,7 @@ namespace Terraria
 		}
 		public static void Unlock(int X, int Y)
 		{
-			Main.PlaySound(22, X * 16, Y * 16, 1);
+			Main.PlaySound(SoundTypeID.UNLOCK, X * 16, Y * 16, 1);
 			for (int i = X; i <= X + 1; i++)
 			{
 				for (int j = Y; j <= Y + 1; j++)

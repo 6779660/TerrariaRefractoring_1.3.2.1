@@ -31,23 +31,22 @@ namespace Terraria
 				}
 				else
 				{
-					if (Main.ignoreErrors)
-					{
-						try
-						{
-							NetMessage.RecieveBytes(this.readBuffer, num, 256);
-							goto IL_59;
-						}
-						catch
-						{
-							goto IL_59;
-						}
-					}
-					NetMessage.RecieveBytes(this.readBuffer, num, 256);
+                    if (Main.ignoreErrors)
+                    {
+                        try
+                        {
+                            NetMessage.RecieveBytes(this.readBuffer, num, 256);
+                        }
+                        catch { }
+                        this.locked = false;
+                    }
+                    else
+                    {
+                        NetMessage.RecieveBytes(this.readBuffer, num, 256);
+                    }
 				}
+                //this.locked = false; ??
 			}
-			IL_59:
-			this.locked = false;
 		}
 	}
 }
