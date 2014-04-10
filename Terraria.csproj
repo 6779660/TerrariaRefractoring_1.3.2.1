@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4EB79E41-FDAA-4778-B206-43C6A5430836}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>Terraria</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Terraria</RootNamespace>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.4.0</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Terraria.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Terraria.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.Xna.Framework.Xact" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Terraria.ID\ItemID.cs" />
+    <Compile Include="Terraria.ID\MessageID.cs" />
+    <Compile Include="Terraria.ID\StatusID.cs" />
+    <Compile Include="Terraria.ID\TileID.cs" />
+    <Compile Include="Terraria.ID\WallID.cs" />
+    <Compile Include="Terraria.MetaData\TileZoneData.cs" />
+    <Compile Include="Terraria\BitsByte.cs" />
+    <Compile Include="Terraria\ChatLine.cs" />
+    <Compile Include="Terraria\Chest.cs" />
+    <Compile Include="Terraria\ClientSock.cs" />
+    <Compile Include="Terraria\Cloud.cs" />
+    <Compile Include="Terraria\Collision.cs" />
+    <Compile Include="Terraria\CombatText.cs" />
+    <Compile Include="Terraria\Dust.cs" />
+    <Compile Include="Terraria\Gore.cs" />
+    <Compile Include="Terraria\HitTile.cs" />
+    <Compile Include="Terraria\IngameOptions.cs" />
+    <Compile Include="Terraria\Item.cs" />
+    <Compile Include="Terraria\ItemText.cs" />
+    <Compile Include="Terraria\keyBoardInput.cs" />
+    <Compile Include="Terraria\Lang.cs" />
+    <Compile Include="Terraria\Lighting.cs" />
+    <Compile Include="Terraria\Liquid.cs" />
+    <Compile Include="Terraria\LiquidBuffer.cs" />
+    <Compile Include="Terraria\Main.cs" />
+    <Compile Include="Terraria\Map.cs" />
+    <Compile Include="Terraria\MessageBuffer.cs" />
+    <Compile Include="Terraria\NetMessage.cs" />
+    <Compile Include="Terraria\Netplay.cs" />
+    <Compile Include="Terraria\NPC.cs" />
+    <Compile Include="Terraria\Player.cs" />
+    <Compile Include="Terraria\Program.cs" />
+    <Compile Include="Terraria\Projectile.cs" />
+    <Compile Include="Terraria\Rain.cs" />
+    <Compile Include="Terraria\Recipe.cs" />
+    <Compile Include="Terraria\ServerSock.cs" />
+    <Compile Include="Terraria\Sign.cs" />
+    <Compile Include="Terraria\Star.cs" />
+    <Compile Include="Terraria\Tile.cs" />
+    <Compile Include="Terraria\Utils.cs" />
+    <Compile Include="Terraria\WaterfallManager.cs" />
+    <Compile Include="Terraria\WorldFile.cs" />
+    <Compile Include="Terraria\WorldGen.cs" />
+    <Compile Include="Terraria\WorldSections.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Microsoft.Xna.Framework.RuntimeProfile" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Terraria.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
